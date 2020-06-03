@@ -28,6 +28,8 @@ public abstract class State {
 	
 	public abstract void changeWorld(String path, BufferedImage image);
 	
+	public abstract void init();
+	
 	public abstract void tick();
 		
 	public abstract void render(Graphics g);

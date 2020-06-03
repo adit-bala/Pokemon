@@ -26,6 +26,10 @@ public class UIManager {
 			o.render(g);
 	}
 	
+	public int size() {
+		return objects.size();
+	}
+	
 	public void onMouseMove(MouseEvent e){
 		for(UIObject o : objects)
 			o.onMouseMove(e);
@@ -42,6 +46,10 @@ public class UIManager {
 	
 	public void removeObject(UIObject o){
 		objects.remove(o);
+	}
+	
+	public void clear() {
+		objects.clear();
 	}
 
 	public Handler getHandler() {

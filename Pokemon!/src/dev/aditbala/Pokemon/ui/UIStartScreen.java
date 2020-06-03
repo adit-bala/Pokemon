@@ -15,7 +15,6 @@ public class UIStartScreen extends UIObject implements ActionListener {
 	private ClickListener clicker;
 	private Timer timer;
 	private int frames;
-	private Music music;
 	
 	public UIStartScreen(float x, float y, int width, int height, BufferedImage[] images, ClickListener clicker) {
 		super(x, y, width, height);

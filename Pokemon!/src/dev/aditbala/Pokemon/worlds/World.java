@@ -3,13 +3,16 @@ package dev.aditbala.Pokemon.worlds;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import dev.aditbala.Pokemon.Game;
 import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.entity.EntityManager;
+import dev.aditbala.Pokemon.entity.creatures.FuturePlayer;
 import dev.aditbala.Pokemon.entity.creatures.Player;
-import dev.aditbala.Pokemon.entity.statics.Tree;
+import dev.aditbala.Pokemon.entity.statics.DoctorOak;
 import dev.aditbala.Pokemon.gfx.Assets;
+import dev.aditbala.Pokemon.gfx.Text;
 import dev.aditbala.Pokemon.states.GameState;
 import dev.aditbala.Pokemon.tiles.Tile;
 import dev.aditbala.Pokemon.utils.Utils;
@@ -21,17 +24,19 @@ public class World {
 	private int spawnX, spawnY;
 	private int[][] tiles;
 	private String path;
-	private boolean diffWorld;
 	private BufferedImage image;
 	//Entities
 	private EntityManager entityManager;
+	//NPCMove
+	private ArrayList<int[]> movers;
 	
 	public World(Handler handler, String path, BufferedImage image) {
 		this.path = path;
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-		diffWorld = true;
-		//entityManager.addEntity(new Tree(handler, 100, 250));
+		entityManager.addEntity(new FuturePlayer(handler, 250, 250, 64, 64));
+		System.out.print(entityManager.size());
+		movers = new ArrayList<int[]>();
 		
 		loadWorld(path);
 		
@@ -39,8 +44,8 @@ public class World {
 		entityManager.getPlayer().setY(spawnY);
 		this.image = image;
 		
+		
 	}
-	
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -58,9 +63,12 @@ public class World {
 			for(int x = xStart; x < xEnd; x++) {
 				getTile(x,y).render(g, (int) (x* Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
 						(int) (y* Tile.TILEHEIGHT-handler.getGameCamera().getyOffset()));
-				g.drawImage(image, (int) (x - handler.getGameCamera().getxOffset()), (int) (y-handler.getGameCamera().getyOffset()), null);
 			}
 		}
+		if(image.equals(Assets.StartRoute))
+			g.drawImage(image, (int) (xStart - handler.getGameCamera().getxOffset()), (int) (yStart-handler.getGameCamera().getyOffset()), null);
+		else
+			g.drawImage(image, 0, 0, null);
 		//System.out.println(image.getHeight());
 		//Entities
 		entityManager.render(g);

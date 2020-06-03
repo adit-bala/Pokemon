@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import dev.aditbala.Pokemon.Handler;
+import dev.aditbala.Pokemon.entity.creatures.FuturePlayer;
 import dev.aditbala.Pokemon.entity.creatures.Player;
 
 public class EntityManager {
 	
 	private Handler handler;
 	private Player player;
+	private FuturePlayer futurePlayer;
 	private ArrayList<Entity> entities;
 	private Comparator<Entity> renderSorter = new Comparator<Entity>() {
 		@Override
@@ -65,6 +67,18 @@ public class EntityManager {
 		this.player = player;
 	}
 
+	public FuturePlayer getFuturePlayer() {
+		return futurePlayer;
+	}
+
+	public void setFuturePlayer(FuturePlayer futurePlayer) {
+		this.futurePlayer = futurePlayer;
+	}
+
+	public int size() {
+		return entities.size();
+	}
+	
 	public ArrayList<Entity> getEntities() {
 		return entities;
 	}

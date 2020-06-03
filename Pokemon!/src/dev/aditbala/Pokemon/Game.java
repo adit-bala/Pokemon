@@ -1,6 +1,7 @@
 package dev.aditbala.Pokemon;
 
 import java.awt.Graphics;
+
 import java.awt.image.BufferStrategy;
 
 import dev.aditbala.Pokemon.display.Display;
@@ -27,6 +28,7 @@ public class Game implements Runnable {
 	//States
 	public State gameState;
 	public State menuState;
+	public State plotState;
 	
 	//Input
 	private KeyManager keyManager;
