@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.Timer;
 
+import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.gfx.Assets;
 import dev.aditbala.Pokemon.gfx.Text;
 
@@ -19,6 +20,7 @@ public class UITextButton extends UIObject implements ActionListener {
 	private Timer timer;
 	private boolean change;
 	private int frames;
+	private Handler handler;
 	
 	public UITextButton(float x, float y, int width, int height, BufferedImage[] images, ClickListener clicker) {
 		super(x, y, width, height);
@@ -46,10 +48,15 @@ public class UITextButton extends UIObject implements ActionListener {
 		story.add("I'm a very forgetful person.");
 		story.add("As you know.");
 		story.add("So I need you to help me");
-		story.add("This item is very important");
+		story.add("I need this item soon");
+		story.add("I can't tell you much");
+		story.add("But follow me outside");
+		story.add("If you find it");
+		story.add("You will get a reward!");
+		story.add("So come now!");
 
 	}
-	
+
 	@Override
 	public void tick() {
 		
@@ -61,7 +68,7 @@ public class UITextButton extends UIObject implements ActionListener {
 			g.drawImage(images[0], (int) x, (int) y, width, height, null);
 			Text.drawString(g, story.get(frames), 254, 350, true, Color.BLACK, Assets.font24);
 			Text.drawString(g, story.get(frames+1), 250, 400, true, Color.BLACK, Assets.font16);
-		}
+		} 
 	}
 
 	@Override
@@ -74,6 +81,7 @@ public class UITextButton extends UIObject implements ActionListener {
 		frames+=2;
 		if(frames > story.size()-1) {
 			change = false;
+			timer.stop();
 		}
 
 	}

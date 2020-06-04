@@ -1,19 +1,12 @@
 package dev.aditbala.Pokemon.worlds;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
-import dev.aditbala.Pokemon.Game;
 import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.entity.EntityManager;
 import dev.aditbala.Pokemon.entity.creatures.FuturePlayer;
 import dev.aditbala.Pokemon.entity.creatures.Player;
-import dev.aditbala.Pokemon.entity.statics.DoctorOak;
 import dev.aditbala.Pokemon.gfx.Assets;
-import dev.aditbala.Pokemon.gfx.Text;
-import dev.aditbala.Pokemon.states.GameState;
 import dev.aditbala.Pokemon.tiles.Tile;
 import dev.aditbala.Pokemon.utils.Utils;
 
@@ -27,17 +20,17 @@ public class World {
 	private BufferedImage image;
 	//Entities
 	private EntityManager entityManager;
-	//NPCMove
-	private ArrayList<int[]> movers;
 	
 	public World(Handler handler, String path, BufferedImage image) {
 		this.path = path;
 		this.handler = handler;
-		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-		entityManager.addEntity(new FuturePlayer(handler, 250, 250, 64, 64));
-		System.out.print(entityManager.size());
-		movers = new ArrayList<int[]>();
-		
+		if(path.equals("res/worlds/world0.txt")){
+			entityManager = new EntityManager(handler, new Player(handler, 100, 101));
+			entityManager.addEntity(new FuturePlayer(handler, 250, 250, 64, 64));
+		} else {
+			entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+			entityManager.addEntity(new FuturePlayer(handler, 200, 450, 64, 64));
+		}
 		loadWorld(path);
 		
 		entityManager.getPlayer().setX(spawnX);

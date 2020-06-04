@@ -30,6 +30,8 @@ public abstract class State {
 	
 	public abstract void init();
 	
+	public abstract void clearManager();
+	
 	public abstract void tick();
 		
 	public abstract void render(Graphics g);

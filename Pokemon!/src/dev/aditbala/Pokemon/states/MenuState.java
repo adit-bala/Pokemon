@@ -54,5 +54,11 @@ public class MenuState extends State {
 			}
 		}));	
 	}
+	
+	@Override
+	public void clearManager() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

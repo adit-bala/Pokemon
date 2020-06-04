@@ -19,13 +19,11 @@ public class GameState extends State {
 
 	private World world;
 	private UIManager uiManager;
-	private int counter;
 	
 	public GameState(final Handler handler) {
 		super(handler);
 		world = new World(handler, "res/worlds/world0.txt", Assets.background);
 		handler.setWorld(world);
-		counter = 0;
 		init();
 	}
 	
@@ -43,6 +41,11 @@ public class GameState extends State {
 	public void changeWorld(String path, BufferedImage image) {
 		world = new World(handler, path, image);
 		handler.setWorld(world);
+	}
+	
+	public void clearManager() {
+		handler.getMouseManager().setUIManager(null);
+		uiManager.clear();
 	}
 	
 	@Override

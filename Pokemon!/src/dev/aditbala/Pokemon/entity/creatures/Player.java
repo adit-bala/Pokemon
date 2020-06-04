@@ -10,6 +10,7 @@ public class Player extends Creature {
 	
 	//Animations
 	private Animation animDown, animUp, animLeft, animRight;
+	private boolean control;
 	
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_HEIGHT, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -24,6 +25,12 @@ public class Player extends Creature {
 		animUp = new Animation(500, Assets.player_up);
 		animLeft = new Animation(500, Assets.player_left);
 		animRight = new Animation(500, Assets.player_right);
+		
+		//Control
+		if(x == 100.0 && y == 101.0)
+			control = false;
+		else
+			control = true;
 	}
 
 	@Override
@@ -34,10 +41,26 @@ public class Player extends Creature {
 		animRight.tick();
 		animLeft.tick();
 		//Movement
-		getInput();
+		if(control)
+			getInput();
 		move();
 		handler.getGameCamera().centerOnEntity(this);
 	} 
+
+	public void follow(float moveX, float moveY) {
+		
+		if(moveX == 0 && moveY == 0)
+			control = true;
+		xMove = 0;
+		yMove = 0;
+		
+		yMove = +moveY;
+		xMove = +moveX;
+	}
+	
+	public void setControl(boolean control) {
+		this.control = control;
+	}
 
 	private void getInput() {
 		xMove = 0;
