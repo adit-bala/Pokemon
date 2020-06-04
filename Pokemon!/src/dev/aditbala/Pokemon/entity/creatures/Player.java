@@ -1,7 +1,9 @@
 package dev.aditbala.Pokemon.entity.creatures;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import dev.aditbala.Pokemon.entity.Entity;
 import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.gfx.Animation;
 import dev.aditbala.Pokemon.gfx.Assets;
@@ -45,7 +47,30 @@ public class Player extends Creature {
 			getInput();
 		move();
 		handler.getGameCamera().centerOnEntity(this);
+		//NPCconversation
+		checkNPCcollision();
 	} 
+
+	private void checkNPCcollision() {
+		Rectangle cb = getCollisionBounds(0,0);
+		Rectangle ar = new Rectangle();
+		int arSize = 20;
+		ar.width = arSize;
+		ar.height = arSize;
+		
+		if(handler.getKeyManager().right) {
+			ar.x = cb.x + cb.width/2 - arSize/2;
+			ar.y = cb.y - arSize;
+		}
+		
+		for(Entity e : handler.getWorld().getEntityManager().getEntities()) {
+			if(e.equals(this))
+				continue;
+			if(e.getCollisionBounds(0, 0).intersects(ar)) {
+				e.toggleChat();
+			}
+		}
+	}
 
 	public void follow(float moveX, float moveY) {
 		

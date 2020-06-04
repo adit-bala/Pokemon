@@ -35,7 +35,7 @@ public class World {
 		
 		//Static Entities
 		
-		entityManager.addEntity(new NPC1(handler, 100, 250));
+		entityManager.addEntity(new NPC1(handler, 450, 400));
 		loadWorld(path);
 		
 		entityManager.getPlayer().setX(spawnX);

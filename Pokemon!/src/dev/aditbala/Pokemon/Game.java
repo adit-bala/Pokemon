@@ -9,6 +9,7 @@ import dev.aditbala.Pokemon.gfx.Assets;
 import dev.aditbala.Pokemon.gfx.GameCamera;
 import dev.aditbala.Pokemon.input.KeyManager;
 import dev.aditbala.Pokemon.input.MouseManager;
+import dev.aditbala.Pokemon.states.BattleState;
 import dev.aditbala.Pokemon.states.GameState;
 import dev.aditbala.Pokemon.states.MenuState;
 import dev.aditbala.Pokemon.states.State;
@@ -28,7 +29,7 @@ public class Game implements Runnable {
 	//States
 	public State gameState;
 	public State menuState;
-	public State plotState;
+	public State battleState;
 	
 	//Input
 	private KeyManager keyManager;
@@ -63,6 +64,7 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
+		battleState = new BattleState(handler);
 		State.setState(menuState);
 	}
 	

@@ -76,4 +76,6 @@ public abstract class Entity {
 		this.height = height;
 	}
 	
+	public void toggleChat() {};
+	
 }

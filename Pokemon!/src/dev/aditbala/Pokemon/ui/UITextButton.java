@@ -27,7 +27,7 @@ public class UITextButton extends UIObject implements ActionListener {
 		this.images = images;
 		change = true;
 		story = new ArrayList<String>();
-		timer = new Timer(3000, this);
+		timer = new Timer(100, this);
 		timer.start();
 		init();
 	}
