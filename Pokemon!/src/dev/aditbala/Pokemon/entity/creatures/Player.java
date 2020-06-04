@@ -59,14 +59,17 @@ public class Player extends Creature {
 		ar.height = arSize;
 		
 		if(handler.getKeyManager().right) {
-			ar.x = cb.x + cb.width/2 - arSize/2;
-			ar.y = cb.y - arSize;
+			ar.x = cb.x + cb.width;
+			ar.y = cb.y + cb.height / 2 - arSize / 2;
+		} else {
+			return;
 		}
 		
 		for(Entity e : handler.getWorld().getEntityManager().getEntities()) {
 			if(e.equals(this))
 				continue;
 			if(e.getCollisionBounds(0, 0).intersects(ar)) {
+				//System.out.print("Collision!");
 				e.toggleChat();
 			}
 		}

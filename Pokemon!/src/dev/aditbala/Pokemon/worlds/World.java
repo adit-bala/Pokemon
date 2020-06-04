@@ -7,6 +7,9 @@ import dev.aditbala.Pokemon.entity.EntityManager;
 import dev.aditbala.Pokemon.entity.creatures.FuturePlayer;
 import dev.aditbala.Pokemon.entity.creatures.Player;
 import dev.aditbala.Pokemon.entity.statics.NPC1;
+import dev.aditbala.Pokemon.entity.statics.NPC2;
+import dev.aditbala.Pokemon.entity.statics.NPC3;
+import dev.aditbala.Pokemon.entity.statics.NPC4;
 import dev.aditbala.Pokemon.gfx.Assets;
 import dev.aditbala.Pokemon.tiles.Tile;
 import dev.aditbala.Pokemon.utils.Utils;
@@ -36,6 +39,9 @@ public class World {
 		//Static Entities
 		
 		entityManager.addEntity(new NPC1(handler, 450, 400));
+		entityManager.addEntity(new NPC2(handler, 870, 470));
+		entityManager.addEntity(new NPC3(handler, 880, 650));
+		entityManager.addEntity(new NPC4(handler, 1620, 500));
 		loadWorld(path);
 		
 		entityManager.getPlayer().setX(spawnX);
