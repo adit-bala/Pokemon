@@ -15,7 +15,7 @@ public class Assets {
 	public static BufferedImage[] player_down, player_up, player_left, player_right, StartScreen, TextBox, Doctor_down, Doctor_up, Doctor_left, Docter_right;
 	
 	public static void init() {
-		font24 = FontLoader.loadFont("res/fonts/Pokemon GB.ttf", 24);
+		font24 = FontLoader.loadFont("res/fonts/Pokemon GB.ttf", 22);
 		font16 = FontLoader.loadFont("res/fonts/Pokemon GB.ttf", 16);
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/SimplePokemonTileset.png"));

@@ -5,9 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
 import javax.swing.Timer;
-
 import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.gfx.Animation;
 import dev.aditbala.Pokemon.gfx.Assets;
@@ -39,14 +37,13 @@ super(handler, x, y, Creature.DEFAULT_CREATURE_HEIGHT, Creature.DEFAULT_CREATURE
 		//initialize
 		movers = new ArrayList<int[]>();
 		change = 0;
-		counter = 0;
-		timer = new Timer(30000, this);
+		counter = 0; 
+		timer = new Timer(49000, this);
 		begin = false;
 		if(x == 250 && y == 250)
 			timer.start();
 		init();
 	}
-
 	public void init() {
 		movers.add(new int[] {2, 0});
 		movers.add(new int[] {0, -2});
@@ -55,7 +52,6 @@ super(handler, x, y, Creature.DEFAULT_CREATURE_HEIGHT, Creature.DEFAULT_CREATURE
 		movers.add(new int[] {1, 0});
 		movers.add(new int[] {1, 0});
 	}
-	
 	@Override
 	public void tick() {
 		animDown.tick();

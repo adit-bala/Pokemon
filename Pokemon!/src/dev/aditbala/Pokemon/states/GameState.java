@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 import dev.aditbala.Pokemon.Game;
 import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.entity.creatures.Player;
-import dev.aditbala.Pokemon.entity.statics.DoctorOak;
 import dev.aditbala.Pokemon.gfx.Assets;
 import dev.aditbala.Pokemon.tiles.Tile;
 import dev.aditbala.Pokemon.ui.ClickListener;
@@ -24,7 +23,6 @@ public class GameState extends State {
 		super(handler);
 		world = new World(handler, "res/worlds/world0.txt", Assets.background);
 		handler.setWorld(world);
-		init();
 	}
 	
 	public void init() {
