@@ -11,7 +11,7 @@ public class Assets {
 	
 	public static Font font24, font16;
 	
-	public static BufferedImage grass, dirt, shrubs, trees, center, background, StartRoute;
+	public static BufferedImage grass, dirt, shrubs, trees, center, background, StartRoute, ditto;
 	public static BufferedImage[] player_down, player_up, player_left, player_right, StartScreen, TextBox, Doctor_down, Doctor_up, Doctor_left, Docter_right;
 	
 	public static void init() {
@@ -25,7 +25,10 @@ public class Assets {
 		SpriteSheet Routes = new SpriteSheet(ImageLoader.loadImage("/textures/PokemonBackground.png")); 
 		SpriteSheet textBox = new SpriteSheet(ImageLoader.loadImage("/textures/PokemonTextBox.png"));
 		SpriteSheet Doctor = new SpriteSheet(ImageLoader.loadImage("/textures/DoctorOak.png"));
+		SpriteSheet Ditto = new SpriteSheet(ImageLoader.loadImage("/textures/ditto.png"));
 		
+		
+		ditto = Ditto.crop(0, 0, width, height);
 		TextBox = new BufferedImage[1];
 		
 		TextBox[0] = textBox.crop(0, 0, 500, 200);

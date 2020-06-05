@@ -38,7 +38,7 @@ super(handler, x, y, Creature.DEFAULT_CREATURE_HEIGHT, Creature.DEFAULT_CREATURE
 		movers = new ArrayList<int[]>();
 		change = 0;
 		counter = 0; 
-		timer = new Timer(3000, this);
+		timer = new Timer(49000, this);
 		begin = false;
 		if(x == 250 && y == 250)
 			timer.start();

@@ -6,6 +6,7 @@ import dev.aditbala.Pokemon.Handler;
 import dev.aditbala.Pokemon.entity.EntityManager;
 import dev.aditbala.Pokemon.entity.creatures.FuturePlayer;
 import dev.aditbala.Pokemon.entity.creatures.Player;
+import dev.aditbala.Pokemon.entity.statics.Ditto;
 import dev.aditbala.Pokemon.entity.statics.NPC1;
 import dev.aditbala.Pokemon.entity.statics.NPC2;
 import dev.aditbala.Pokemon.entity.statics.NPC3;
@@ -42,6 +43,7 @@ public class World {
 		entityManager.addEntity(new NPC2(handler, 870, 470));
 		entityManager.addEntity(new NPC3(handler, 880, 650));
 		entityManager.addEntity(new NPC4(handler, 1620, 500));
+		entityManager.addEntity(new Ditto(handler, 1300, 720));
 		loadWorld(path);
 		
 		entityManager.getPlayer().setX(spawnX);
